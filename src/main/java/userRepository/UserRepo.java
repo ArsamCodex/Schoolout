@@ -28,4 +28,25 @@ public class UserRepo {
         emf.close();
 }
     }
+
+public Optional<User> getUserByLogin (String login){
+        EntityTransaction et = em.getTransaction();
+        User user = em.find(User.class, login);
+        if (user != null) {
+            return (Optional.of(user));
+        }
+        return (Optional.empty());
+    }
+
+public Optional<Person> deletePerson (Person person) throws TransactionException {
+        EntityTransaction et = em.getTransaction();
+        em.getTransaction().begin();
+        if (getPersonById(person.getId()) == null){
+            throw new TransactionException ("No such person found to be removed");
+        } else {
+            em.remove(person);
+            return Optional.of(person);
+        }
+    }
+
 }
