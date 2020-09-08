@@ -15,7 +15,7 @@ public class UserRepo {
 
     public  void examOutput(Long id){
        
-       If (id > 0){
+       
 
         EntityTransaction et = em.getTransaction();
         et.begin();
@@ -36,17 +36,7 @@ public Optional<User> getUserByLogin (String login){
             return (Optional.of(user));
         }
         return (Optional.empty());
-    }
-
-public Optional<Person> deletePerson (Person person) throws TransactionException {
-        EntityTransaction et = em.getTransaction();
-        em.getTransaction().begin();
-        if (getPersonById(person.getId()) == null){
-            throw new TransactionException ("NOT EXIST");
-        } else {
-            em.remove(person);
-            return Optional.of(person);
-        }
+    
     }
 
 }
