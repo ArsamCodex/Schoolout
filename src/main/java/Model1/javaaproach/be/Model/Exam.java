@@ -34,8 +34,6 @@ public class Exam {
     @OneToMany(mappedBy = "exam")
     private List<Exam> subExams;
 
-    @OneToMany(mappedBy = "exam")
-    private List<Grade> grades;
 
     public Long getId() {
         return id;
@@ -118,14 +116,7 @@ public class Exam {
         return this;
     }
 
-    public List<Grade> getGrades() {
-        return grades;
-    }
-
-    public Exam setGrades(List<Grade> grades) {
-        this.grades = grades;
-        return this;
-    }
+    
 
     @Override
     public String toString() {
