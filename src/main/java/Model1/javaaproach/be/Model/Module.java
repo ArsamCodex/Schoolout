@@ -16,10 +16,18 @@ public class Module {
     @Lob
     private String description;
 
-    @ManyToOne
+    
+    @ManyToOne(
+            fetch = FetchType.EAGER,
+            cascade = CascadeType.ALL)
     private Course course;
 
-    @OneToMany(mappedBy = "module")
+        @OneToMany(
+            
+            cascade = CascadeType.ALL,
+            mappedBy = "module",
+            fetch = FetchType.EAGER,
+            orphanRemoval = true)
     private List<Exam> exams;
 
     public Long getId() {
