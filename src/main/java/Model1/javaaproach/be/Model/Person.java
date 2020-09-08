@@ -29,7 +29,7 @@ public class Person {
     @ManyToMany
     private List<Course> courseHistory;
 
-    @OneToOne(mappedBy = "person")
+    @OneToOne
     private User user;
 
     @OneToMany(mappedBy = "person")
