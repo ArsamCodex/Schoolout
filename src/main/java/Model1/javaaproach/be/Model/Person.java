@@ -32,8 +32,7 @@ public class Person {
     @OneToOne
     private User user;
 
-    @OneToMany(mappedBy = "person")
-    private List<Grade> grades;
+   
 
     public Integer getId() {
         return id;
@@ -98,14 +97,7 @@ public class Person {
         return this;
     }
 
-    public List<Grade> getGrades() {
-        return grades;
-    }
-
-    public Person setGrades(List<Grade> grades) {
-        this.grades = grades;
-        return this;
-    }
+    
 
     @Override
     public String toString() {
