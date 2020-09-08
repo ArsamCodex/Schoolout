@@ -25,18 +25,6 @@ public class UserRepo {
 
         et.commit();
         em.close();
-        emf.close();
-}
-    }
-
-public Optional<User> getUserByLogin (String login){
-        EntityTransaction et = em.getTransaction();
-        User user = em.find(User.class, login);
-        if (user != null) {
-            return (Optional.of(user));
         }
-        return (Optional.empty());
-    
-    }
 
 }
