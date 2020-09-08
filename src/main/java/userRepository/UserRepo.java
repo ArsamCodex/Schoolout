@@ -8,14 +8,14 @@ import javax.persistence.*;
 
 public class UserRepo {
 
-    private Long id;
+   
 
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("dataSource");
     EntityManager em = emf.createEntityManager();
 
     public  void examOutput(Long id){
        
-       If (id >10){
+       If (id > 0){
 
         EntityTransaction et = em.getTransaction();
         et.begin();
