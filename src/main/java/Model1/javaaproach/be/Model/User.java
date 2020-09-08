@@ -3,13 +3,17 @@ package Model1.javaaproach.be.Model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table
 public class User {
 
     @Id
     private String login;
+
     private String passwordHash;
+
     private Boolean isActive;
 
     @OneToOne
@@ -54,11 +58,10 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "login='" + login + ' ' +
-                ", passwordHash='" + passwordHash + ' ' +
+                "login='" + login + '\'' +
+                ", passwordHash='" + passwordHash + '\'' +
                 ", isActive=" + isActive +
                 ", person=" + person +
                 '}';
     }
 }
-

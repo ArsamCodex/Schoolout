@@ -1,21 +1,39 @@
 package Model1.javaaproach.be.Model;
 
+import Model1.javaaproach.be.Model.Course;
+import Model1.javaaproach.be.Model.Gender;
+import Model1.javaaproach.be.Model.Grade;
+import Model1.javaaproach.be.Model.User;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
+@Table
 public class Person {
 
     @Id
     @GeneratedValue
     private Integer id;
+
     private String firstName;
+
     private String familyName;
 
     @Enumerated
     private Gender gender;
 
     @ManyToOne
-    private Course course;
+    private Course courseActive;
+
+    @ManyToMany
+    private List<Course> courseHistory;
+
+    @OneToOne(mappedBy = "person")
+    private User user;
+
+    @OneToMany(mappedBy = "person")
+    private List<Grade> grades;
 
     public Integer getId() {
         return id;
@@ -53,12 +71,39 @@ public class Person {
         return this;
     }
 
-    public Course getCourse() {
-        return course;
+    public Course getCourseActive() {
+        return courseActive;
     }
 
-    public Person setCourse(Course course) {
-        this.course = course;
+    public Person setCourseActive(Course course) {
+        this.courseActive = course;
+        return this;
+    }
+
+    public List<Course> getCourseHistory() {
+        return courseHistory;
+    }
+
+    public Person setCourseHistory(List<Course> courseHistory) {
+        this.courseHistory = courseHistory;
+        return this;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public Person setUser(User user) {
+        this.user = user;
+        return this;
+    }
+
+    public List<Grade> getGrades() {
+        return grades;
+    }
+
+    public Person setGrades(List<Grade> grades) {
+        this.grades = grades;
         return this;
     }
 
@@ -66,10 +111,10 @@ public class Person {
     public String toString() {
         return "Person{" +
                 "id=" + id +
-                ", firstName='" + firstName + ' ' +
-                ", familyName='" + familyName + ' ' +
+                ", firstName='" + firstName + '\'' +
+                ", familyName='" + familyName + '\'' +
                 ", gender=" + gender +
-                ", course=" + course +
+                ", course=" + courseActive +
                 '}';
     }
 }

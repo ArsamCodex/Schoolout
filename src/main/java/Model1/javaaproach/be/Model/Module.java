@@ -4,11 +4,13 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table
 public class Module {
 
     @Id
     @GeneratedValue
     private Long id;
+
     private String name;
 
     @Lob
@@ -65,15 +67,15 @@ public class Module {
         return this;
     }
 
+
     @Override
     public String toString() {
         return "Module{" +
                 "id=" + id +
-                ", name='" + name + ' ' +
-                ", description='" + description + ' ' +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
                 ", course=" + course +
                 ", exams=" + exams +
                 '}';
     }
 }
-
