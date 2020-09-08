@@ -23,7 +23,9 @@ public class Exam {
 
     private Integer total;
 
-    @ManyToOne
+     @ManyToOne(targetEntity = Module.class,
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER
     private Module module;
 
     @OneToOne
