@@ -87,7 +87,7 @@ public class Person {
     public Person setCourseHistory(List<Course> courseHistory) {
         this.courseHistory = courseHistory;
         return this;
-    }
+    } 
 
     public User getUser() {
         return user;
