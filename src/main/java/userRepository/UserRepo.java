@@ -14,6 +14,8 @@ public class UserRepo {
     EntityManager em = emf.createEntityManager();
 
     public  void examOutput(Long id){
+       
+       If (id >10){
 
         EntityTransaction et = em.getTransaction();
         et.begin();
@@ -24,5 +26,6 @@ public class UserRepo {
         et.commit();
         em.close();
         emf.close();
+}
     }
 }
