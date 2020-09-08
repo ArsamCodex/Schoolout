@@ -42,7 +42,7 @@ public Optional<Person> deletePerson (Person person) throws TransactionException
         EntityTransaction et = em.getTransaction();
         em.getTransaction().begin();
         if (getPersonById(person.getId()) == null){
-            throw new TransactionException ("No such person found to be removed");
+            throw new TransactionException ("NOT EXIST");
         } else {
             em.remove(person);
             return Optional.of(person);
