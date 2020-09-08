@@ -19,7 +19,7 @@ public class UserRepo {
 
         EntityTransaction et = em.getTransaction();
         et.begin();
-        User user = em.find(User.class,6);
+        User user = em.find(User.class,id);
         System.out.println(user.toString());
         em.persist(id);
 
