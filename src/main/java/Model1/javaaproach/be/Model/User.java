@@ -16,7 +16,7 @@ public class User {
 
     private Boolean isActive;
 
-    @OneToOne
+    @OneToOne(mappedBy="user")
     private Person person;
 
     public String getLogin() {
