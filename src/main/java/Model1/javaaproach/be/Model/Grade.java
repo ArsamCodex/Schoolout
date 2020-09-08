@@ -40,7 +40,7 @@ public class Grade {
 
     public Person getPerson() {
         return person;
-    }
+    } 
 
     public Grade setPerson(Person person) {
         this.person = person;
