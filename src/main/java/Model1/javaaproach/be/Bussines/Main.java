@@ -1,10 +1,7 @@
 package Model1.javaaproach.be.Bussines;
 
 
-import Model1.javaaproach.be.Model.Course;
-import Model1.javaaproach.be.Model.Exam;
-import Model1.javaaproach.be.Model.Gender;
-import Model1.javaaproach.be.Model.Person;
+import Model1.javaaproach.be.Model.*;
 import userRepository.UserRepo;
 
 import javax.persistence.EntityManager;
@@ -15,20 +12,20 @@ import java.time.LocalDate;
 
 public class Main {
     public static  void main (String [] args){
+
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("dataSource");
         EntityManager em = emf.createEntityManager();
-        Person person = new Person().setFamilyName("Armin").setFirstName("parsa").setGender(Gender.MALE);
-        EntityTransaction et = em.getTransaction();
-        et.begin();
-        em.persist(person);
 
-        et.commit();
+        Person person = em.find(Person.class,9);
+        em.getTransaction().begin();
+        em.persist(person);
+        System.out.println(person.toString());
+        em.getTransaction().commit();
+
         em.close();
         emf.close();
-//
-//        System.out.println(person.toString());
-//        UserRepo ur = new UserRepo();
-//        ur.examOutput(10L);
+
+
 
 
 
